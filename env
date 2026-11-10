@@ -1,0 +1,22 @@
+{
+	"id": "39547d91-7b46-42ca-b1aa-2f48a111a256",
+	"name": "Testing",
+	"values": [
+		{
+			"key": "base_url",
+			"value": "http://216.10.245.166",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "url",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		}
+	],
+	"color": null,
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2026-11-10T19:50:17.487Z",
+	"_postman_exported_using": "Postman/12.36.1"
+}

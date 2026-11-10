@@ -1,0 +1,15 @@
+{
+	"id": "11c4de08-3258-441f-83b7-4dc679382ebd",
+	"values": [
+		{
+			"key": "companyCode",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		}
+	],
+	"name": "c3Online Globals",
+	"_postman_variable_scope": "globals",
+	"_postman_exported_at": "2026-11-10T19:50:46.636Z",
+	"_postman_exported_using": "Postman/12.36.1"
+}
