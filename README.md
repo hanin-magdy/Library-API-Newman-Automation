@@ -112,7 +112,8 @@ npm install -g newman-reporter-htmlextra
 
 2. Execution Command Clone this repository, open your terminal inside the project root folder, and execute:
 
-newman run library.postman_collection.json -e Testing.postman_environment.json -d "book.csv" -r htmlextra
+newman run library.postman_collection.json -e env -g globals -d "Book 2.csv" -r htmlextra
+
 
  
 
