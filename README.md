@@ -97,6 +97,7 @@ This project demonstrates complete API test coverage for managing a library syst
 | Average Response Time | ~257ms |
 
 > Full HTML execution reports complete with interactive graphs and request/response logs are stored in the /newman directory.
+> > 🔗 Live Interactive Report: [Click Here to View HTML Execution Report](https://htmlpreview.github.io/?https://github.com/hanin-magdy/Library-API-Newman-Automation/blob/main/newman/Library-2026-11-10-19-55-18-895-0.html)
 
 ---
 
