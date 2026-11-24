@@ -1,1 +1,2 @@
+# Keep generated Newman HTML reports out of the repo language stats
 *.html linguist-vendored
