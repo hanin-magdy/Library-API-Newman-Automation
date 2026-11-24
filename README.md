@@ -7,8 +7,8 @@ An end-to-end Automated Testing framework built for the Library REST API using P
 ## 🌟 Project Overview & Key Highlights
 This project demonstrates complete API test coverage for managing a library system (Adding, Retrieving, and Deleting books). It incorporates advanced Postman features such as environment dynamic scoping, automated request chaining, custom schema assertions, and headless CLI execution.
 
-- 100% Test Pass Rate: 54 out of 54 assertions passed seamlessly across all iterations.
-- Data-Driven Execution: External CSV integration (book.csv) for dynamic payload population and multi-iteration testing.
+- 100% Test Pass Rate: 54 out of 54 assertions passed across all iterations.
+- Data-Driven Execution: External CSV integration (Book 2.csv) for dynamic payload population and multi-iteration testing.
 - Automated Request Chaining: Dynamic variable passing across dependent API endpoints.
 - Automated Teardown & Clean-up: Smart fallback cleanup logic using pm.execution.setNextRequest to delete created records automatically after test runs.
 - CI/CD & Headless Ready: Integrated with Newman CLI and htmlextra for stakeholder-ready HTML reporting.
@@ -19,7 +19,7 @@ This project demonstrates complete API test coverage for managing a library syst
 - API Client: Postman Desktop & Postman Runner
 - Command Line Execution: Newman CLI (newman)
 - Reporting Framework: htmlextra Reporter (newman-reporter-htmlextra)
-- Data Source: External CSV Dataset (book.csv)
+- Data Source: External CSV Dataset (Book 2.csv)
 - Scripting & Logic: JavaScript (Postman Sandbox)
 - Key Concepts:
   - RESTful API Testing & Status Code Validations
@@ -63,12 +63,12 @@ This project demonstrates complete API test coverage for managing a library syst
 
 ```text
 .
-├── library.postman_collection.json    # Exported Postman Collection
-├── Testing.postman_environment.json   # Exported Environment Variables File
-├── book.csv                           # Test Dataset for Data-Driven Testing
-├── newman/                            # Directory containing generated HTML Reports
-└── README.md                          # Documentation
- 
+├── Library.postman_collection.json   # Exported Postman Collection
+├── env                               # Exported Postman Environment (base_url)
+├── globals                           # Exported Postman Global Variables
+├── Book 2.csv                        # Test Dataset for Data-Driven Testing
+├── newman/                           # Directory containing generated HTML Reports
+└── README.md                         # Documentation
 ```
 
 ## 💡 Real-world Challenges & Engineering Solutions
@@ -79,9 +79,19 @@ This project demonstrates complete API test coverage for managing a library syst
 - Solution: Navigated to the environment settings, enabled the Shared Value column view, populated the environment URLs explicitly into the shared fields, and re-exported the environment file. This ensured complete data persistence for headless execution.
 
 ### Challenge 2: CSV Data Scope & Null Values in Individual Request Executions
-- Issue: Executing individual endpoints (e.g., GET /GetBook) directly in Postman returned null / undefined values for data variables extracted from book.csv (such as bookName and authorName).
+- Issue: Executing individual endpoints (e.g., GET /GetBook) directly in Postman returned null / undefined values for data variables extracted from Book 2.csv (such as bookName and authorName).
 - Root Cause: Data-driven CSV variables are bound to the IterationData scope, which is only injected when executing requests through the Collection Runner or Newman CLI, not during standalone single-request triggers.
-- Solution: Executed the test suite through Postman Collection Runner and Newman CLI, passing book.csv as the data source across 3 iterations. This bound the CSV values correctly, resulting in 3 successful iterations with 100% assertions passed (54/54).
+- Solution: Executed the test suite through Postman Collection Runner and Newman CLI, passing Book 2.csv as the data source across 3 iterations. This bound the CSV values correctly, resulting in 3 successful iterations with 100% assertions passed (54/54).
+
+---
+
+## ▶️ Running from the Command Line
+
+```
+newman run Library.postman_collection.json -e env -d "Book 2.csv" -r cli,htmlextra
+```
+
+The suite also runs automatically on GitHub Actions on every push. The workflow installs Newman, runs the collection with the same CSV dataset, and uploads the HTML report as a build artifact (see the Actions tab).
 
 ---
 
