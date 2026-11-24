@@ -1,0 +1,30 @@
+name: Newman API Tests
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  newman:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Newman
+        run: npm install -g newman newman-reporter-htmlextra
+
+      - name: Run the Library API collection
+        run: newman run Library.postman_collection.json -e env -d "Book 2.csv" -r cli,htmlextra --reporter-htmlextra-export newman-report.html
+
+      - name: Upload HTML report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: newman-report
+          path: newman-report.html
